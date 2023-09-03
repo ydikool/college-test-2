@@ -31,4 +31,11 @@ export default (content) => {
 
   console.log(`цена за отряд самых толстых: ${prices[fattestUnitIndex] * unitsInDivision[fattestUnitIndex]}`);
   console.log(`цена за отряд самых тонких: ${prices[thinnestUnitIndex] * unitsInDivision[thinnestUnitIndex]}`);
+
+  // step 4
+  const mapStrenthToValue = strength.map((strength, index) => Math.floor(prices[index] / strength));
+  const worstByPrice = mapStrenthToValue.indexOf(Math.max(...mapStrenthToValue));
+  const bestByPrice = mapStrenthToValue.indexOf(Math.min(...mapStrenthToValue));
+  console.log(`Самый выгодный юнит: ${creatures[bestByPrice]}`);
+  console.log(`Самый невыгодный юнит: ${creatures[worstByPrice]}`);
 };
