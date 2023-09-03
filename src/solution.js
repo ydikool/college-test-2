@@ -38,4 +38,7 @@ export default (content) => {
   const bestByPrice = mapStrenthToValue.indexOf(Math.min(...mapStrenthToValue));
   console.log(`Самый выгодный юнит: ${creatures[bestByPrice]}`);
   console.log(`Самый невыгодный юнит: ${creatures[worstByPrice]}`);
+
+  // step 5 
+  console.log(`Самая лучшая армия за 10000: ${10000/prices[bestByPrice]} ${creatures[bestByPrice]}`);
 };
