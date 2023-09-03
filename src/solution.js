@@ -1,7 +1,9 @@
 export default (content) => {
+  // step 1
   const data = content.split('\n').slice(1);
   console.log(`Количество рядов: ${data.length}`);
 
+  // step 2
   const rows = data.map((row) => row
   .split('|')
   .filter((row)=>row))
@@ -20,4 +22,13 @@ export default (content) => {
 
   console.log(`цена за 10 сильнейших созданий: ${prices[strongestIndex] * 10}`);
   console.log(`цена за 20 вторых по силе созданий: ${prices[secondStrongestIndex] * 20}`);
+
+  // step 3
+  const unitsInDivision = rows.map((row) => row[3]);
+  const averageWeight = rows.map((row) => Number(row[5]));
+  const fattestUnitIndex = averageWeight.indexOf(Math.max(...averageWeight));
+  const thinnestUnitIndex = averageWeight.indexOf(Math.min(...averageWeight));
+
+  console.log(`цена за отряд самых толстых: ${prices[fattestUnitIndex] * unitsInDivision[fattestUnitIndex]}`);
+  console.log(`цена за отряд самых тонких: ${prices[thinnestUnitIndex] * unitsInDivision[thinnestUnitIndex]}`);
 };
