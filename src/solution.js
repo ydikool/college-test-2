@@ -9,12 +9,15 @@ export default (content) => {
     .map((element) => element.trim())
   );
 
+  const creatures = rows.map((row) => row[0]);
+  const prices = rows.map((row) => row[6]);
+
   const strength = rows.map((row) => Number(row[1]));
   const strongestIndex = strength.indexOf(Math.max(...strength));
-  console.log(strongestIndex);
   const strenghtWithoutStrongest = strength.slice()
   strenghtWithoutStrongest[strongestIndex]=0
   const secondStrongestIndex = strength.indexOf(Math.max(...strenghtWithoutStrongest));
-  console.log(strenghtWithoutStrongest);
-  console.log(secondStrongestIndex);
+
+  console.log(`цена за 10 сильнейших созданий: ${prices[strongestIndex] * 10}`);
+  console.log(`цена за 20 вторых по силе созданий: ${prices[secondStrongestIndex] * 20}`);
 };
